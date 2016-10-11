@@ -1,3 +1,4 @@
+#pragma once
 #include "stdafx.h"
 #include <iostream>
 #include <stdlib.h>
@@ -9,6 +10,7 @@
 #define random(low,high) (rand()%(high-low+1)+1)//high-low+1是随机数的范围，+1保证没有0从1开始
 #define maxsize 1000
 using namespace std;
+extern int start;
 
 struct Fraction{
 	int up, down;
@@ -29,6 +31,6 @@ void print_frac(Fraction f);//输出分数
 string FraToString(Fraction f);//将分数转换为string形式
 void trans(string exp, char postexp[]);//将中缀表达式转换为后缀表达式
 Fraction calculate(char postexp[]);//计算后缀表达式的值
-void generate(int time, int low, int high, int muldiv, int frac, int par);//运算
+int generate(int time, int low, int high, int muldiv, int frac, int par);//运算
 int ran(int down, int up);//随机函数
 
