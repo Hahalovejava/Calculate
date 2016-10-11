@@ -215,7 +215,7 @@ int generate(int time, int low, int high, int muldiv, int frac, int par){
 	}
 	cout << "****************************************************************************" << endl;
 	cout << "你做对了" << right1 << "道题，做错了" << wrong << "道题"<<endl;
-	cout << "是否重新出题？(y/n)";
+	cout <<endl<< "是否重新出题？(y/n)";
 	char yn; int restart;//再次出题
 	cin >> yn;
 	yn == 'y' || yn == 'Y' ? restart = 1 : restart = 0;
