@@ -7,6 +7,8 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	cout << "欢迎使用小学生运算系统！" << endl;
+	cout << "****************************************************************************" << endl;
 	cout << "请输入题目个数（1~100）：";
 	int time, down, up, muldiv=0, frac=0, par=0;
 	cin >> time;//time题目数
@@ -25,8 +27,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	cin >> yn3;
 	yn3 == 'y' || yn3 == 'Y' ? frac = 1 : frac = 0;
 	cout << "****************************************************************************" << endl;
-	generate(time, down, up, muldiv, frac, par);
-	system("pause");
+	int restart=1;
+	while (restart == 1){
+		restart=generate(time, down, up, muldiv, frac, par);
+	}
 	return 0;
 }
 

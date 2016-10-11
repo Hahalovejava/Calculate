@@ -28,7 +28,7 @@ bool is_unique(string str, vector<string>s){ //判断生成的算式是否独特
 	}
 }
 
-void generate(int time, int low, int high, int muldiv, int frac, int par){
+int generate(int time, int low, int high, int muldiv, int frac, int par){
 	int integer1, integer2;
 	vector<string>str;//str用来保存生成的题目
 	int ch1, ch2, ch3, ch4;//switch语句的选项
@@ -36,10 +36,9 @@ void generate(int time, int low, int high, int muldiv, int frac, int par){
 	int right1 = 0,wrong=0;
 	for (int i = 1; i <= time;){
 		int start = 1;//start用来标记算式是否是刚开始生成
-		int right = 0, wrong = 0;
 		string first, second;//四则运算的第一个运算数，第二个运算数
 		string cal;
-		int num = ran(1, 9);//num为参与运算的参数个数
+		int num = ran(1, 9)+1;//num为参与运算的参数个数
 		for (int j = 1; j < num;){
 			//-------------------------------------------------------
 			if (muldiv == 1){//允许乘除
@@ -86,6 +85,13 @@ void generate(int time, int low, int high, int muldiv, int frac, int par){
 				}break;
 				default:cout << "有错误！" << endl; break;
 				}
+			}
+			else{//不允许真分数参与运算
+				stringstream si, so;
+				integer1 = ran(low, high);
+				si << integer1; si >> first;
+				integer2 = ran(low, high);
+				so << integer2; so >> second;
 			}
 			//-------------------------------------------------------
 			if (par == 1){//允许带括号
@@ -177,11 +183,11 @@ void generate(int time, int low, int high, int muldiv, int frac, int par){
 			string result = FraToString(re);
 			if (answer == result){
 				cout << "正确！你真棒！" << endl;
-				right++;
+				right1++;
 			}
 			else{
 				cout << "错误！加油哦~" << endl << "正确的答案为：" << result << endl;
-				wrong;
+				wrong++;
 			}
 			i++;
 		}
@@ -197,11 +203,11 @@ void generate(int time, int low, int high, int muldiv, int frac, int par){
 			string result = FraToString(re);
 			if (answer == result){
 				cout << "正确！你真棒！" << endl;
-				right++;
+				right1++;
 			}
 			else{
 				cout << "错误！加油哦~" << endl << "正确的答案为：" << result << endl;
-				wrong;
+				wrong++;
 			}
 			i++;
 		}
@@ -209,4 +215,9 @@ void generate(int time, int low, int high, int muldiv, int frac, int par){
 	}
 	cout << "****************************************************************************" << endl;
 	cout << "你做对了" << right1 << "道题，做错了" << wrong << "道题"<<endl;
+	cout << "是否重新出题？(y/n)";
+	char yn; int restart;//再次出题
+	cin >> yn;
+	yn == 'y' || yn == 'Y' ? restart = 1 : restart = 0;
+	return restart;
 }

@@ -19,14 +19,14 @@ void trans(string exp, char postexp[]){//exp[]为中缀表达式,postexp[]为后缀表达式
 					 op.data[op.top] = ch;
 		}break;
 		case ')':{//判定为右括号，将'('之前的运算符依次出栈放到postexp中
-					 while (op.data[op.top]!='('){
+					 while (op.data[op.top] != '('){
 						 postexp[j] = op.data[op.top];
 						 j++;
 						 op.top--;
 					 }
 					 op.top--;//将‘（’弹出
 		}break;
-		case '+'://‘+’‘-’,优先级最低，直到‘）’为止
+		case '+'://‘+’‘-’,优先级最低，直到‘(’为止
 		case '-':{
 					 while (op.top != -1 && op.data[op.top] != '('){
 						 postexp[j] = op.data[op.top];
@@ -71,7 +71,7 @@ void trans(string exp, char postexp[]){//exp[]为中缀表达式,postexp[]为后缀表达式
 		ch = exp[i];
 		i++;
 	}
-	while (op.top!=1){//此时exp扫描完成，栈不空时，出栈并放到postexp中
+	while (op.top != -1){//此时exp扫描完成，栈不空时，出栈并放到postexp中
 		postexp[j] = op.data[op.top];
 		j++;
 		op.top--;
@@ -119,7 +119,7 @@ Fraction calculate(char postexp[]){//计算后缀表达式的值
 						 ch = postexp[i];
 						 i++;
 					 }
-					 ch = postexp[i]; i++;//删除’\\'
+					 ch = postexp[i]; i++;//删除’\'
 					 while (ch != ']'){
 						 low = 10 * low + ch - '0';
 						 ch = postexp[i];
