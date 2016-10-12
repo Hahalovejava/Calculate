@@ -9,27 +9,27 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	cout << "欢迎使用小学生运算系统！" << endl;
 	cout << "****************************************************************************" << endl;
-	cout << "请输入题目个数（1~100）：";
-	int time, down, up, muldiv=0, frac=0, par=0;
-	cin >> time;//time题目数
-	cout <<"请输入数值绝对值范围:";
-	cin >> down >> up;//[down,up]为运算数范围
-	cout << "是否允许乘除法参与运算（y/n):";
-	char yn1;
-	cin >> yn1;
-	yn1 == 'y' || yn1 == 'Y' ? muldiv = 1 : muldiv = 0;
-	cout << "是否允许括号参与运算（y/n):";
-	char yn2;
-	cin >> yn2;
-	yn2 == 'y' || yn2 == 'Y' ? par  = 1 : par = 0;
-	cout << "是否允许真分数参与运算（y/n):";
-	char yn3;
-	cin >> yn3;
-	yn3 == 'y' || yn3 == 'Y' ? frac = 1 : frac = 0;
-	cout << "****************************************************************************" << endl;
-	int restart=1;
+	int restart = 1;
 	while (restart == 1){
-		restart=generate(time, down, up, muldiv, frac, par);
+		cout <<endl<< "请输入题目个数（1~100）：";
+		int time, down, up, muldiv = 0, frac = 0, par = 0;
+		cin >> time;//time题目数
+		cout << "请输入数值绝对值范围:";
+		cin >> down >> up;//[down,up]为运算数范围
+		cout << "是否允许乘除法参与运算（y/n):";
+		char yn1;
+		cin >> yn1;
+		yn1 == 'y' || yn1 == 'Y' ? muldiv = 1 : muldiv = 0;
+		cout << "是否允许括号参与运算（y/n):";
+		char yn2;
+		cin >> yn2;
+		yn2 == 'y' || yn2 == 'Y' ? par = 1 : par = 0;
+		cout<< "是否允许真分数参与运算（y/n):";
+		char yn3;
+		cin >> yn3;
+		yn3 == 'y' || yn3 == 'Y' ? frac = 1 : frac = 0;
+		cout << "****************************************************************************" << endl;
+		restart = generate(time, down, up, muldiv, frac, par);
 	}
 	return 0;
 }

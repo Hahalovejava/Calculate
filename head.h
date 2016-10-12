@@ -7,10 +7,13 @@
 #include <sstream>
 #include <string>
 #include <stack>
+#include <fstream>
+
 #define random(low,high) (rand()%(high-low+1)+1)//high-low+1是随机数的范围，+1保证没有0从1开始
 #define maxsize 1000
 using namespace std;
 extern int start;
+
 
 struct Fraction{
 	int up, down;

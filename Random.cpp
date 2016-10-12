@@ -1,6 +1,6 @@
 #include "head.h"
 
-
+int nametime = 1;
 
 int flag = 1;
 int ran(int down, int up){      //随机生成1至n的整数
@@ -33,12 +33,12 @@ int generate(int time, int low, int high, int muldiv, int frac, int par){
 	vector<string>str;//str用来保存生成的题目
 	int ch1, ch2, ch3, ch4;//switch语句的选项
 	char sign;//运算符号
-	int right1 = 0,wrong=0;
+	int right1 = 0, wrong = 0;
 	for (int i = 1; i <= time;){
 		int start = 1;//start用来标记算式是否是刚开始生成
 		string first, second;//四则运算的第一个运算数，第二个运算数
 		string cal;
-		int num = ran(1, 9)+1;//num为参与运算的参数个数
+		int num = ran(1, 9) + 1;//num为参与运算的参数个数
 		for (int j = 1; j < num;){
 			//-------------------------------------------------------
 			if (muldiv == 1){//允许乘除
@@ -213,11 +213,24 @@ int generate(int time, int low, int high, int muldiv, int frac, int par){
 		}
 		else{}
 	}
+	string name;
+	stringstream ss;
+	ss << nametime; ss >> name;
+	string na = "question" + name + ".txt";
+	ofstream output_file(na);//用ofstream类的构造函数创建一个文件输出流对象来打开文件
+	ostream_iterator<string> output_iterator(output_file, "=\n");
+	copy(str.begin(), str.end(), output_iterator);
 	cout << "****************************************************************************" << endl;
 	cout << "你做对了" << right1 << "道题，做错了" << wrong << "道题"<<endl;
-	cout << "是否重新出题？(y/n)";
+	cout <<endl<< "是否重新出题？(y/n)";
 	char yn; int restart;//再次出题
 	cin >> yn;
-	yn == 'y' || yn == 'Y' ? restart = 1 : restart = 0;
+	if (yn == 'y' || yn == 'Y'){
+		restart = 1;
+		nametime++;
+	}
+	else{
+		restart = 0;
+	}
 	return restart;
 }
