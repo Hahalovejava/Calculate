@@ -239,7 +239,7 @@
  </tr>
  <tr>
    <td>testNum</td>
-   <td>String</td>
+   <td>BigInt</td>
    <td>N</td>
    <td>PK</td>
  </tr>
@@ -251,13 +251,13 @@
  </tr>
  <tr>
    <td>userNum</td>
-   <td>Long</td>
+   <td>Int</td>
    <td>Y</td>
    <td>FK</td>
  </tr>
  <tr>
    <td>teaPageNum</td>
-   <td>Long</td>
+   <td>Int</td>
    <td>Y</td>
    <td>FK</td>
  </tr>
