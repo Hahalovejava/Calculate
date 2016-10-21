@@ -91,7 +91,7 @@
    <td></td>
  </tr>
  <tr>
-   <td>studentImage</td>
+   <td>userImage</td>
    <td>String</td>
    <td>Y</td>
    <td></td>
