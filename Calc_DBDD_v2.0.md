@@ -16,19 +16,17 @@
 <table class="table table-bordered table-striped table-condensed">
  <tr>
    <td>表名</td>
-   <td>功能说明</td>
- </tr>
+   <td>功能说明</td> </tr>
  <tr>
-   <td>User</td>
-   <td>用户信息表</td>
+   <td>Student</td>
+   <td>学生用户信息表</td>
  </tr>
  <tr>
    <td>Teacher</td>
    <td>教师信息表</td>
  </tr>
  <tr>
-   <td>Admin</td>
-   <td>管理员信息表</td>
+   <td>Admin</td>   <td>管理员信息表</td>
  </tr>
  <tr>
    <td>CalQuestion</td>
@@ -39,8 +37,7 @@
    <td>教师出题表，教师出的测试信息</td>
  </tr>
  <tr>
-   <td>Test</td>
-   <td>测试信息表，用户进行测试的相关信息</td>
+   <td>Test</td>   <td>测试信息表，用户进行测试的相关信息</td>
  </tr>
  <tr>
    <td>TeaPageQuestiom</td>
@@ -48,10 +45,8 @@
  </tr>
  <tr>
    <td>TestCalQuestion</td>
-   <td>测试与四则运算题关系表</td>
- </tr>
- </table>
-<h3 id='4.1'>4.1 User表</h3>
+   <td>测试与四则运算题关系表</td> </tr>
+ </table><h3 id='4.1'>4.1 Student表</h3>
 <table class="table table-bordered table-striped table-condensed">
  <tr>
    <td>列名</td>
@@ -60,43 +55,43 @@
    <td>约束条件</td>
  </tr>
  <tr>
-   <td>userNum</td>
-   <td>Long</td>
+   <td>studentNum</td>
+   <td>int</td>
    <td>N</td>
    <td>PK</td>
  </tr>
  <tr>
-   <td>userName</td>
+   <td>studentName</td>
    <td>String</td>
    <td>N</td>
    <td></td>
  </tr>
  <tr>
-   <td>userKey</td>
+   <td>studentKey</td>
    <td>String</td>
    <td>N</td>
    <td></td>
  </tr>
  <tr>
-   <td>userGrade</td>
-   <td>Int</td>
+   <td>studentGrade</td>
+   <td>String</td>
    <td>Y</td>
    <td></td>
  </tr>
  <tr>
-   <td>userQuestion</td>
+   <td>studentQuestion</td>
    <td>String</td>
    <td>N</td>
    <td></td>
  </tr>
  <tr>
-   <td>userAnswer</td>
+   <td>studentAnswer</td>
    <td>String</td>
    <td>N</td>
    <td></td>
  </tr>
  <tr>
-   <td>userImage</td>
+   <td>studentImage</td>
    <td>String</td>
    <td>Y</td>
    <td></td>
